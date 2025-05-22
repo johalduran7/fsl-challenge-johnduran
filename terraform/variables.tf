@@ -8,5 +8,5 @@ variable "env" {
 }
 
 variable build_path {
-  default     = "/Users/johnduran/fsl_challenge/fsl-challenge-johnduran/app/build/"
+  default     = "/Users/johnduran/fsl_challenge/fsl-challenge-johnduran/app/build"
 }
