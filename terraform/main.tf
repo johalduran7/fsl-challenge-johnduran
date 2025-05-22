@@ -12,6 +12,27 @@ resource "aws_s3_bucket" "frontend" {
   }
 }
 
+locals {
+    build_dir=var.build_path
+    files = fileset(local.build_dir,"**/*")
+}
+
+resource "aws_s3_object" "object" {
+    for_each = { for file in local.files: file => file}
+
+  bucket = aws_s3_bucket.frontend.id
+  key    = each,key
+  source = "${local.build_dir}/${each.key}"
+  etag = filemd5("${local.build_dir}/${each.key}")
+  content_type=lookup({
+    html="text/html"
+    js="application/javascript"
+    json="application/json"
+    txt="text/plain"
+    map="application/json"
+  },regex("[^.]+$"),"default")
+}
+
 resource "aws_s3_bucket_public_access_block" "frontend_bucket" {
   bucket = aws_s3_bucket.frontend.id
 
@@ -147,3 +168,4 @@ resource "aws_s3_bucket_policy" "frontend" {
     }
   )
 }
+
