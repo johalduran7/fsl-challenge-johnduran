@@ -61,10 +61,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '17'
+          node-version: '14'
 
       - name: Install dependencies
-        run: npm install -g npm@7
+        run: |
+          npm install -g npm@7
+          npm install --save-dev eslint-config-prettier
+          npm install --save-dev @testing-library/jest-dom
+
 
       - name: Run linter
         run: npm run lint
