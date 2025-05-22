@@ -49,6 +49,9 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app/codebase
     needs: validate-pr-source
     if: needs.validate-pr-source.outputs.valid == 'true'
     steps: 
