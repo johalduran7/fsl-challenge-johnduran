@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: app/codebase
+        working-directory: app/codebase/rdicidr-0.1.0
     needs: validate-pr-source
     if: needs.validate-pr-source.outputs.valid == 'true'
     steps: 
