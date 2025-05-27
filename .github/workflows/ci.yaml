@@ -78,10 +78,10 @@ jobs:
         run: npx prettier --write "src/**/*.{js,jsx}"
 
 
-      # - name: Run tests
-      #   env: 
-      #     CI: true
-      #   run: npm run test
+      - name: Run tests
+        env: 
+          CI: true
+        run: npm run test
 
       - name: Build project
         run: npm run build
