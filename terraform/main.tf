@@ -21,7 +21,9 @@ resource "aws_s3_object" "object" {
     for_each = { for file in local.files: file => file}
 
   bucket = aws_s3_bucket.frontend.id
+
   key    = each.key
+
   source = "${local.build_dir}/${each.key}"
   etag = filemd5("${local.build_dir}/${each.key}")
   content_type=lookup({
@@ -31,6 +33,7 @@ resource "aws_s3_object" "object" {
     txt="text/plain"
     map="application/json"
   },regex("[^.]+$",each.key),"default")
+
 }
 
 resource "aws_s3_bucket_public_access_block" "frontend_bucket" {
