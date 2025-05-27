@@ -74,7 +74,7 @@ jobs:
         run: npm run lint
 
       - name: Run formatter
-        run: npm run prettier "src/**/*.ts" --write
+        run: npx prettier -c "src/**/*.{js,jsx}"
 
       - name: Run tests
         env: 
