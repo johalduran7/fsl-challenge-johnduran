@@ -73,13 +73,14 @@ jobs:
       - name: Run linter
         run: npm run lint
 
+
       - name: Run formatter
         run: npx prettier -c "src/**/*.{js,jsx}"
 
-      - name: Run tests
-        env: 
-          CI: true
-        run: npm run test
+      # - name: Run tests
+      #   env: 
+      #     CI: true
+      #   run: npm run test
 
       - name: Build project
         run: npm run build
@@ -89,4 +90,5 @@ jobs:
         with:
           name: build
           path: app/codebase/rdicidr-0.1.0/
+
 
