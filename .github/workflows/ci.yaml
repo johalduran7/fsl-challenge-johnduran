@@ -75,7 +75,7 @@ jobs:
 
 
       - name: Run formatter
-        npx prettier --write "src/**/*.{js,jsx}"
+        run: npx prettier --write "src/**/*.{js,jsx}"
 
 
       # - name: Run tests
