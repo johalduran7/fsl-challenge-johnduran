@@ -94,4 +94,9 @@ jobs:
           echo $GITHUB_ENV
           var_file=$(echo ./envs/"$ENV".tfvars)
           terraform init
+          current_workspace=$(terraform workspace show)
+          echo current workspace: $current_workspace
+          terraform workspace select $ENV
           terraform apply -auto-approve -var-file $var_file  -var "build_path=$build_path" 
+
+
