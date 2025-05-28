@@ -98,5 +98,3 @@ jobs:
           echo current workspace: $current_workspace
           terraform workspace select $ENV
           terraform apply -auto-approve -var-file $var_file  -var "build_path=$build_path" 
-
-
