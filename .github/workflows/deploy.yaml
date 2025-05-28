@@ -81,7 +81,7 @@ jobs:
           TF_VAR_aws_region: ${{ env.AWS_REGION }}
           TF_VAR_env: ${{ env.ENV }} 
           #TF_VAR_build_path: "./app/build/"
-          TF_WORKSPACE: "${{ env.ENV }}"
+          #TF_WORKSPACE: "${{ env.ENV }}"
         run: |
           cd terraform
           ENV=$(echo ${{ github.ref_name }})
